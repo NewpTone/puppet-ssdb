@@ -1,0 +1,40 @@
+{
+  "name": "puppet-ssdb",
+  "version": "0.1.0",
+  "author": "Xingchao Yu",
+  "summary": "Puppet module for ssdb",
+  "license": "Apache-2.0",
+  "source": "git://github.com/newptone/puppet-ssdb.git",
+  "description": "Installs and configures ssdb.",
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": "4.x"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": "4.x"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": ["8"]
+    },
+    {
+      "operatingsystem": "Fedora",
+      "operatingsystemrelease": ["21","22"]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": ["7"]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": ["14.04","16.04"]
+    }
+  ],
+  "dependencies": [
+    { "name": "saz/puppet-rsyslog", "version_requirement": ">=v5.0.0 <v10.0.0" }
+  ]
+}

@@ -1,0 +1,48 @@
+# ssdb-server config
+# MUST indent by TAB!
+
+# relative to path of this file, directory must exists
+work_dir = <%= @work_dir %>
+pidfile =  <%= @pidfile %>
+
+server:
+	# bind to public ip
+	ip: 0.0.0.0
+	port: <%= @port %>
+	# format: allow|deny: all|ip_prefix
+	# multiple allows or denys is supported
+	#deny: all
+	#allow: 127.0.0.1
+	#allow: 192.168
+
+replication:
+	<%- if @enable_binlog -%>
+	binlog: yes
+	<%- end -%>
+	slaveof:
+	# to identify a master even if it moved(ip, port changed)
+	# if set to empty or not defined, ip:port will be used.
+<%- if @enable_replication -%>
+		id: <%= @replication_id %>
+		type: <%= @replication_type %>
+		ip: <%= @replication_ip %>
+		port: <%= @replication_port %>
+<%- end -%>
+
+logger:
+	level: <%= @log_level %>
+	output: <%= @log_output %>
+	rotate:
+		size: 10000000
+
+leveldb:
+	# in MB
+	cache_size: <%= @cache_size %>
+	# in KB
+	block_size: <%= @block_size %>
+	#in MB
+	write_buffer_size: 64
+	# in MB
+	compaction_speed: 1000
+	# yes|no
+	compression: <%= @compression %>
