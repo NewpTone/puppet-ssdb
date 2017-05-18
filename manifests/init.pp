@@ -22,7 +22,7 @@
 # [*config_rsyslog*]
 #
 class ssdb (
-  $ensure_package     = present,
+  $ensure_package     = 'present',
   $port               = '8887',
   $work_dir           = '/var/lib/ssdb/',
   $pidfile            = '/var/run/ssdb.pid',
@@ -55,7 +55,6 @@ class ssdb (
     name       => 'ssdb-server',
     ensure     => running,
     enable     => true,
-    hasrestart => true,
     subscribe  => File['ssdb.conf']
   }
 
