@@ -7,7 +7,7 @@ pidfile =  <%= @pidfile %>
 
 server:
 	# bind to public ip
-	ip: 0.0.0.0
+	ip: <%= @bind_host %>
 	port: <%= @port %>
 	readonly: <%= @readonly %>
 	# format: allow|deny: all|ip_prefix

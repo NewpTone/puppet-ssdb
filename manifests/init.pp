@@ -5,6 +5,7 @@
 # == Parameters:
 #
 # [*ensure_package*]
+# [*bind_host*]
 # [*port*]
 # [*work_dir*]
 # [*pidfile*]
@@ -23,6 +24,7 @@
 #
 class ssdb (
   $ensure_package     = 'present',
+  $bind_host          = '0.0.0.0',
   $port               = '8887',
   $work_dir           = '/var/lib/ssdb/',
   $pidfile            = '/var/run/ssdb.pid',
