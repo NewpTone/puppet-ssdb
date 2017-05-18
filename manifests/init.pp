@@ -35,22 +35,23 @@ class ssdb (
   $enable_replication = false,
   $replication_id     = undef,
   $replication_type   = 'mirror',
-  $replication_ip     = '127.0.0.1',
+  $replication_host    = '127.0.0.1',
   $replication_port   = '8888',
+  $readonly           = 'no',
   $config_rsyslog     = false,
 ){
 
-  package {'ssdb':
+  package { 'ssdb':
     ensure => $ensure_package,
   }
 
-  file {'ssdb.conf':
+  file { 'ssdb.conf':
     ensure  => present,
     path    => '/etc/ssdb/ssdb.conf',
     content => template('ssdb/ssdb.conf.erb')
   }
 
-  service {'ssdb-server':
+  service { 'ssdb-server':
     name       => 'ssdb-server',
     ensure     => running,
     enable     => true,
