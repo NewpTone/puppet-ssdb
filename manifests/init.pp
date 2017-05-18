@@ -51,8 +51,8 @@ class ssdb (
     content => template('ssdb/ssdb.conf.erb')
   }
 
-  service { 'ssdb-server':
-    name       => 'ssdb-server',
+  service { 'ssdb':
+    name       => 'ssdb',
     ensure     => running,
     enable     => true,
     subscribe  => File['ssdb.conf']
