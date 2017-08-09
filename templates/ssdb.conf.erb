@@ -22,7 +22,7 @@ replication:
 	<%- end -%>
 	slaveof:
 		# to identify a master even if it moved(ip, port changed)
-		# # if set to empty or not defined, ip:port will be used.
+		# if set to empty or not defined, ip:port will be used.
 <%- if @enable_replication -%>
 		id: <%= @replication_id %>
 		type: <%= @replication_type %>
